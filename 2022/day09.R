@@ -39,3 +39,17 @@ for(i in seq_along(directions)){
 sum(!duplicated(tmat))
 plot(tmat[,1:2],type="l")
 lines(hmat[,1:2],col="red")
+
+#part 2
+h <- t(as.matrix(c(0,0)))
+mat_lst <- list(h,h,h,h,h,h,h,h,h,h)
+for(i in seq_along(directions)){
+  for(j in 1:9){
+    tmp <- move(mat_lst[[j]][i,],mat_lst[[j+1]][i,],directions[i])
+    if(j==1){
+      mat_lst[[j]] <- rbind(mat_lst[[j]],tmp$head)
+    }
+    mat_lst[[j+1]] <- rbind(mat_lst[[j+1]],tmp$tail)  
+  }
+}
+sum(!duplicated(mat_lst[[10]]))
