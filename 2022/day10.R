@@ -27,4 +27,4 @@ for(j in 1:6){
     sprite <- c(status[k,2],status[k,2]+1,status[k,2]+2)
   }
 }
-apply(crt,1,paste,collapse = ".")
+cat(apply(crt,1,paste,collapse = ""),sep="\n")
