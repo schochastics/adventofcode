@@ -21,4 +21,4 @@ check_fct <- function(x){
   }
   return(NULL)
 }
-listnums <- length(unique(unlist(apply(beacons,1,check_fct))))
+length(unique(unlist(apply(beacons,1,check_fct))))
